@@ -6,7 +6,9 @@ import { FaCarSide } from "react-icons/fa";
 // Sample user listings
 const initialUserCars = [
   { id: 1, brand: "Lexus", price: 30000, image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500" },
+  
   { id: 2, brand: "Mazda", price: 21000, image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500" },
+
   { id: 3, brand: "Peugeot", price: 18000, image: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=60" },
   { id: 4, brand: "Volkswagen", price: 27000, image: "https://plus.unsplash.com/premium_photo-1686730540270-93f2c33351b6?ixlib=rb-4.1.0&auto=format&fit=crop&q=60&w=500" },
 ];
