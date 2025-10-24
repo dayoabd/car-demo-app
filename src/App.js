@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/Home";
+import SellCar from "./components/SellCar";
+import CarDetails from "./components/CarDetails";
+import NavBar from "./components/NavBar";
 
 function App() {
+  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    root.classList.remove("light", "dark");
+    root.classList.add(theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${theme === "dark" ? "dark bg-gray-900" : "bg-gray-100"} min-h-screen`}>
+      <Router>
+        <NavBar theme={theme} setTheme={setTheme} />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sell" element={<SellCar />} />
+          <Route path="/cars/:id" element={<CarDetails />} />
+        </Routes>
+      </Router>
     </div>
   );
 }
