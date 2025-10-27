@@ -12,7 +12,8 @@ const NavBar = ({ theme, setTheme }) => {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 100 }}
-      className="flex justify-between items-center px-8 py-4 bg-white dark:bg-gray-900 shadow-md"
+      className="fixed top-0 left-0 w-full flex justify-between items-center px-8 py-4 
+                 bg-white dark:bg-gray-900 shadow-md z-50"
     >
       {/* Logo */}
       <Link to="/" className="text-2xl font-bold text-blue-600">
@@ -24,7 +25,9 @@ const NavBar = ({ theme, setTheme }) => {
         <Link
           to="/"
           className={`${
-            location.pathname === "/" ? "text-blue-600" : "text-gray-700 dark:text-gray-200"
+            location.pathname === "/"
+              ? "text-blue-600"
+              : "text-gray-700 dark:text-gray-200"
           } hover:text-blue-600 transition`}
         >
           Home
@@ -50,12 +53,12 @@ const NavBar = ({ theme, setTheme }) => {
         {/* Theme Toggle */}
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          className="p-2 rounded-full bg-gray-100 dark:bg-gray-700"
+          className="p-2 rounded-full bg-gray-100 dark:bg-gray-700 transition"
         >
           {theme === "dark" ? (
-            <BsSunFill className="text-yellow-400" />
+            <BsSunFill className="text-yellow-400 text-lg" />
           ) : (
-            <BsMoonStarsFill className="text-gray-800" />
+            <BsMoonStarsFill className="text-gray-800 text-lg" />
           )}
         </button>
       </div>

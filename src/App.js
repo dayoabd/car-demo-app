@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import SellCar from "./components/SellCar";
 import CarDetails from "./components/CarDetails";
 import NavBar from "./components/NavBar";
+import Footer from "./components/Fotter";
 
 function App() {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -24,6 +25,7 @@ function App() {
           <Route path="/sell" element={<SellCar />} />
           <Route path="/cars/:id" element={<CarDetails />} />
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
